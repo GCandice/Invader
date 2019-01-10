@@ -76,6 +76,7 @@ public class GameView extends View implements TimerAction {
 
         armada = new Armada(R.mipmap.alien,missile);
         canon = new Canon(R.mipmap.canon,800, 2200,laser);
+        // x: position horizontale y : position verticale
 
 
 //        hero = new Hero(R.drawable.running_rabbit,SPEED);
@@ -105,10 +106,11 @@ public class GameView extends View implements TimerAction {
      */
     @Override
     public void update() {
-        if (this.isShown()) { // Si la vue est visible
+        if (this.isShown() && !canon.hit) { // Si la vue est visible
             timer.scheduleRefresh(30); // programme le prochain rafraichissement
 
             armada.testIntersection(laser);
+            canon.testIntersection(missile);
             armada.act();
             canon.act();
 

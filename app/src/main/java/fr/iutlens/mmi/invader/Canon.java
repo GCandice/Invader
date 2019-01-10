@@ -48,4 +48,15 @@ class Canon extends Sprite {
         laser.add(new Projectile(R.mipmap.laser,x+dxLaser,y+dyLaser,-20));
 
     }
+
+    public void testIntersection(List<Projectile> missile) {
+        for(Projectile p : missile){
+            RectF bbox = p.getBoundingBox();
+                if (bbox.intersect(getBoundingBox())){
+                    hit = true;
+                    p.hit = true;
+                }
+        }
+
+    }
 }
