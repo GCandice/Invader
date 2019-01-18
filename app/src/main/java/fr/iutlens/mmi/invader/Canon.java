@@ -39,13 +39,13 @@ class Canon extends Sprite {
 
     public void setDirection(int i) {
         vx += i;
-        if (vx<-1) vx = -1;
-        else if (vx>1) vx = 1;
+        if (vx<-2) vx = -2;
+        else if (vx>2) vx = 2;
     }
 
 
     public void fire() {
-        laser.add(new Projectile(R.mipmap.laser,x+dxLaser,y+dyLaser,-20));
+        laser.add(new Projectile(R.mipmap.laser,x+dxLaser,y+dyLaser,-30));
 
     }
 
