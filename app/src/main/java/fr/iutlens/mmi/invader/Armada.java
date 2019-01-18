@@ -20,6 +20,8 @@ class Armada extends Sprite{
     private final int missileDy;
     private int speed_x;
     private int speed_y;
+    public int deltaScore;
+
 
     public Armada(int id, List<Projectile> missile) {
         super(id,0,0);
@@ -85,23 +87,25 @@ class Armada extends Sprite{
 
     public RectF getBoundingBox() {
         RectF result = null;
-        for (Alien s: alien
+        for (Alien s : alien
                 ) {
             final RectF boundingBox = s.getBoundingBox();
             if (result == null) result = boundingBox;
-           else result.union(boundingBox);
+            else result.union(boundingBox);
         }
 
         return result;
     }
 
     public void testIntersection(List<Projectile> laser) {
+        deltaScore = 0;
         for(Projectile p : laser){
             RectF bbox = p.getBoundingBox();
             for(Alien a: alien){
                 if (bbox.intersect(a.getBoundingBox())){
                     a.hit = true;
                     p.hit = true;
+                    deltaScore += 100;
                 }
             }
         }
