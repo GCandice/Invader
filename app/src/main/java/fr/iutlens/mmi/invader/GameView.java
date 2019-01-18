@@ -6,6 +6,7 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -35,6 +36,8 @@ public class GameView extends View implements TimerAction {
     private Canon canon;
     private List<Projectile> missile;
     private List<Projectile> laser;
+    private TextView textViewScore;
+    private int score;
 
 
     public GameView(Context context) {
@@ -116,7 +119,10 @@ public class GameView extends View implements TimerAction {
 
             act(missile);
             act(laser);
+            score += armada.deltaScore;
 
+
+            if (textViewScore != null) textViewScore.setText(""+score);
             invalidate(); // demande à rafraichir la vue
         }
     }
@@ -196,4 +202,11 @@ public class GameView extends View implements TimerAction {
 
     }
 
+    public void setTextViewScore(TextView textViewScore) {
+        this.textViewScore = textViewScore;
+    }
+
+    public TextView getTextViewScore() {
+        return textViewScore;
+    }
 }
