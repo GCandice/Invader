@@ -1,5 +1,6 @@
 package fr.iutlens.mmi.invader;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         gameView = findViewById(R.id.gameView);
         TextView textViewScore = findViewById(R.id.textScore);
         gameView.setTextViewScore(textViewScore);
+        gameView.setActivity(this);
     }
 
     public void onLeft(View view) {
@@ -31,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
     public void onFire(View view) {
         gameView.onFire();
     }
+
+
+
+    //Résulats
+
 }

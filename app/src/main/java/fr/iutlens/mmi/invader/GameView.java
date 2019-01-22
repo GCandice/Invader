@@ -1,6 +1,7 @@
 package fr.iutlens.mmi.invader;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
@@ -38,6 +39,7 @@ public class GameView extends View implements TimerAction {
     private List<Projectile> laser;
     private TextView textViewScore;
     private int score;
+    private MainActivity activity;
 
 
     public GameView(Context context) {
@@ -125,6 +127,11 @@ public class GameView extends View implements TimerAction {
 
             if (textViewScore != null) textViewScore.setText(""+score);
             invalidate(); // demande à rafraichir la vue
+        } else if (canon.vie <0){
+
+            Intent intent = new Intent(activity, result.class);
+            intent.putExtra("SCORE", score);
+            activity.startActivity(intent);
         }
     }
 
@@ -137,7 +144,7 @@ public class GameView extends View implements TimerAction {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         // On met une couleur de fond
-        canvas.drawColor(0xff000077);
+        //canvas.drawColor(0xff000077);
 
         // On choisit la transformation à appliquer à la vue i.e. la position
         // de la "camera"
@@ -213,5 +220,13 @@ public class GameView extends View implements TimerAction {
 
     public TextView getTextViewScore() {
         return textViewScore;
+    }
+
+    public void setActivity(MainActivity activity) {
+        this.activity = activity;
+    }
+
+    public MainActivity getActivity() {
+        return activity;
     }
 }
