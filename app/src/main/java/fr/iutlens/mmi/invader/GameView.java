@@ -149,8 +149,8 @@ public class GameView extends View implements TimerAction {
         // On choisit la transformation à appliquer à la vue i.e. la position
         // de la "camera"
 
-        for( int i = 1 ; i<=canon.vie ; i++){
-            SpriteSheet.get(R.mipmap.vie).paint(canvas,0,i*30,20);
+        for( int i = 0 ; i<=canon.vie-1 ; i++){
+            SpriteSheet.get(R.mipmap.vie).paint(canvas,0,i*90,20);
         }
 
         canvas.concat(transform);
