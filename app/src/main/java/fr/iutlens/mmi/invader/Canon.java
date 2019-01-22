@@ -16,6 +16,7 @@ class Canon extends Sprite {
     private final int dxLaser;
     private final int dyLaser;
     int vx = 0;
+    public int vie = 3;
 
     Canon(int id, float x, float y, List<Projectile> laser) {
         super(id, x, y);
@@ -55,6 +56,7 @@ class Canon extends Sprite {
                 if (bbox.intersect(getBoundingBox())){
                     hit = true;
                     p.hit = true;
+                    vie = vie-1;
                 }
         }
 
