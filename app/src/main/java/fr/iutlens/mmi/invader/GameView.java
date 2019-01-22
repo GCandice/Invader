@@ -70,6 +70,7 @@ public class GameView extends View implements TimerAction {
         SpriteSheet.register(R.mipmap.missile,4,1,this.getContext());
         SpriteSheet.register(R.mipmap.laser,1,1,this.getContext());
         SpriteSheet.register(R.mipmap.canon,1,1,this.getContext());
+        SpriteSheet.register(R.mipmap.vie,1,1,this.getContext());
 
         transform = new Matrix();
         reverse = new Matrix();
@@ -109,7 +110,7 @@ public class GameView extends View implements TimerAction {
      */
     @Override
     public void update() {
-        if (this.isShown() && !canon.hit) { // Si la vue est visible
+        if (this.isShown() && canon.vie >= 0) { // Si la vue est visible
             timer.scheduleRefresh(30); // programme le prochain rafraichissement
 
             armada.testIntersection(laser);
@@ -140,6 +141,10 @@ public class GameView extends View implements TimerAction {
 
         // On choisit la transformation à appliquer à la vue i.e. la position
         // de la "camera"
+
+        for( int i = 1 ; i<=canon.vie ; i++){
+            SpriteSheet.get(R.mipmap.vie).paint(canvas,0,i*30,20);
+        }
 
         canvas.concat(transform);
 
