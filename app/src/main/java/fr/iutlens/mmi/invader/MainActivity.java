@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         bt = (Button) findViewById(R.id.buttonFire);
         mp = MediaPlayer.create(this, R.raw.tir);
 
-        
+
         //Bind music service
 
         doBindService();
@@ -77,7 +77,15 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        @Override
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mServ != null) {
+            mServ.pauseMusic();
+        }
+    }
+
+    @Override
         protected void onResume() {
             super.onResume();
 

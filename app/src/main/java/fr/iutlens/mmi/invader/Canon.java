@@ -51,12 +51,14 @@ class Canon extends Sprite {
 
     public boolean fire() {
         if (laser.size() >2 ) {
+            return false;
 
         } else {
 
             laser.add(new Projectile(R.mipmap.laser,x+dxLaser,y+dyLaser,-20));
         }
-         return false;
+         return true;
+
     }
 
     public void testIntersection(List<Projectile> missile) {
