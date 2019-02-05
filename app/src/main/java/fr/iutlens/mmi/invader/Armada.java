@@ -30,7 +30,7 @@ class Armada extends Sprite{
 
         for(int i = 0; i <6; ++i){
             for(int j= 0; j< 5; ++j){
-                alien.add(new Alien(id,i*200,j*140));
+                alien.add(new Alien(id,i*200,j*180));
             }
         }
 
