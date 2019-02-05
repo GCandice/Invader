@@ -35,6 +35,10 @@ class Canon extends Sprite {
         } else {
             vx = 0;
         }
+        if (hit == true) {
+            hit = false;
+            vie = vie-1;
+        }
         return false;
     }
 
@@ -56,9 +60,7 @@ class Canon extends Sprite {
                 if (bbox.intersect(getBoundingBox())){
                     hit = true;
                     p.hit = true;
-                    vie = vie-1;
                 }
         }
-
     }
 }
