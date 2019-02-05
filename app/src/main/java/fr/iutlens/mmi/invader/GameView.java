@@ -123,6 +123,7 @@ public class GameView extends View implements TimerAction {
 
             armada.testIntersection(laser);
             canon.testIntersection(missile);
+            armada.testCollision(canon);
             armada.act();
             canon.act();
 
