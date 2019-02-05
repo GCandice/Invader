@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -40,6 +42,8 @@ public class GameView extends View implements TimerAction {
     private TextView textViewScore;
     private int score;
     private MainActivity activity;
+    private SoundPool soundPool;
+    private int soundId;
 
 
     public GameView(Context context) {
@@ -84,6 +88,8 @@ public class GameView extends View implements TimerAction {
         canon = new Canon(R.mipmap.canon,800, 2200,laser);
         // x: position horizontale y : position verticale
 
+        soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
+        soundId = soundPool.load(this.getContext(), R.raw.tir, 0);
 
 //        hero = new Hero(R.drawable.running_rabbit,SPEED);
 
@@ -211,7 +217,7 @@ public class GameView extends View implements TimerAction {
 
     public void onFire(){
         canon.fire();
-
+        soundPool.play(soundId, 1f, 1f, 0, 0, 1f);
     }
 
     public void setTextViewScore(TextView textViewScore) {
