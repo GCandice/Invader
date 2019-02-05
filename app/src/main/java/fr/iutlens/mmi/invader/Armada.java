@@ -22,7 +22,6 @@ class Armada extends Sprite{
     private int speed_y;
     public int deltaScore;
 
-
     public Armada(int id, List<Projectile> missile) {
         super(id,0,0);
         this.missile = missile;
@@ -77,7 +76,6 @@ class Armada extends Sprite{
                 missile.add(new Projectile(R.mipmap.missile,s.x+missileDx,s.y+missileDy,+15));
             }
         }
-
         return false;
     }
 
@@ -93,7 +91,6 @@ class Armada extends Sprite{
             if (result == null) result = boundingBox;
             else result.union(boundingBox);
         }
-
         return result;
     }
 
@@ -109,6 +106,16 @@ class Armada extends Sprite{
                 }
             }
         }
+    }
 
+    public void testCollision(Canon cannon) {
+        RectF bbox = cannon.getBoundingBox();
+        for(Alien a: alien){
+            if (bbox.intersect(a.getBoundingBox())){
+                a.hit = true;
+                cannon.hit = true;
+//                Canon.vie = Canon.vie - 1;
+            }
+        }
     }
 }
