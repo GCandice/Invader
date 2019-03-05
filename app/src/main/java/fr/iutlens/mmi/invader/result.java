@@ -16,7 +16,7 @@ public class result extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         TextView ScoreLabel = (TextView) findViewById(R.id.ScoreLabel);
-        TextView MeilleurScoreLabel = (TextView) findViewById(R.id.MeilleurScoreLabel);
+        // TextView MeilleurScoreLabel = (TextView) findViewById(R.id.MeilleurScoreLabel);
 
         int score = getIntent().getIntExtra("SCORE", 0);
         ScoreLabel.setText(score + "");
@@ -25,7 +25,7 @@ public class result extends AppCompatActivity {
         int MeilleurScore = settings.getInt("MEILLEUR_SCORE", 0);
 
         if (score > MeilleurScore) {
-            MeilleurScoreLabel.setText("Meilleur score : " + score);
+            // MeilleurScoreLabel.setText("Meilleur score : " + score);
 
             //enregistrer
 
@@ -34,7 +34,7 @@ public class result extends AppCompatActivity {
             editor.commit();
 
         } else {
-            MeilleurScoreLabel.setText("Meilleur Score : " + MeilleurScore);
+            // MeilleurScoreLabel.setText("Meilleur Score : " + MeilleurScore);
 
 
         }

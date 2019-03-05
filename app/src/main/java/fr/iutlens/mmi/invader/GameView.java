@@ -100,14 +100,11 @@ public class GameView extends View implements TimerAction {
         timer = new RefreshHandler(this);
 
         // Un clic sur la vue lance (ou relance) l'animation
-        this.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!timer.isRunning()) timer.scheduleRefresh(30);
-            }
-        });
-    }
 
+        if (!timer.isRunning()) timer.scheduleRefresh(30);
+
+
+    }
 
     public static void act(List list){
         Iterator it = list.iterator();
@@ -131,11 +128,17 @@ public class GameView extends View implements TimerAction {
             act(laser);
             score += armada.deltaScore;
 
+            if (textViewScore != null) textViewScore.setText("" + score);
 
-            if (textViewScore != null) textViewScore.setText(""+score);
+            if (armada.isEmpty()) {
+                Intent intent = new Intent(activity, VictoryActivity.class);
+                intent.putExtra("SCORE", score);
+                activity.startActivity(intent);
+                activity.finish();
+                timer.stop();
+            }
             invalidate(); // demande à rafraichir la vue
-        } else if (canon.vie <0){
-
+        } else if (canon.vie < 0) {
             Intent intent = new Intent(activity, result.class);
             intent.putExtra("SCORE", score);
             activity.startActivity(intent);
@@ -185,7 +188,6 @@ public class GameView extends View implements TimerAction {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-
         setZoom(w, h);
     }
 
