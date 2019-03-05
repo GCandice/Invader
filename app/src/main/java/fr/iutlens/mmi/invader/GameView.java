@@ -43,7 +43,7 @@ public class GameView extends View implements TimerAction {
     private int score;
     private MainActivity activity;
     private SoundPool soundPool;
-    private int soundId;
+    private int soundTir;
 
 
     public GameView(Context context) {
@@ -89,7 +89,7 @@ public class GameView extends View implements TimerAction {
         // x: position horizontale y : position verticale
 
         soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
-        soundId = soundPool.load(this.getContext(), R.raw.tir, 0);
+        soundTir = soundPool.load(this.getContext(), R.raw.tir, 0);
 
 //        hero = new Hero(R.drawable.running_rabbit,SPEED);
 
@@ -217,8 +217,9 @@ public class GameView extends View implements TimerAction {
     }
 
     public void onFire(){
-        canon.fire();
-        soundPool.play(soundId, 1f, 1f, 0, 0, 1f);
+        if(canon.fire()) {
+            soundPool.play(soundTir, 1f, 1f, 0, 0, 1f);
+        }
     }
 
     public void setTextViewScore(TextView textViewScore) {
