@@ -29,6 +29,10 @@ public class RefreshHandler extends Handler {
             sendMessageDelayed(obtainMessage(0), delayMillis);
         }
 
+        public void stop() {
+            this.removeMessages(0);
+        }
+
         public boolean isRunning() {
             return this.hasMessages(0);
         }

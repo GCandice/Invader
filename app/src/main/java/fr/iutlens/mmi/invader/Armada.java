@@ -1,7 +1,11 @@
 package fr.iutlens.mmi.invader;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.RectF;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -50,7 +54,7 @@ class Armada extends Sprite{
 
     @Override
     public boolean act() {
-
+        if (alien.isEmpty()) return true;
         RectF bounds = getBoundingBox();
         ++state;
 
@@ -118,4 +122,27 @@ class Armada extends Sprite{
             }
         }
     }
+
+    public boolean isEmpty() {
+        return alien.isEmpty();
+    }
+/*
+    public static class WinActivity {
+        private Button b;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main2);
+
+            b = (Button) findViewById(R.id.button);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Main2Activity.this,MainActivity.class);
+                    startActivity(i);
+                }
+            });
+        }
+    } */
 }
