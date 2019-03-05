@@ -3,8 +3,10 @@ package fr.iutlens.mmi.invader;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -23,6 +25,12 @@ public class Main2Activity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+        TextView t = (TextView) findViewById(R.id.textView2);
+        t.setMovementMethod(LinkMovementMethod.getInstance());
     }
+
+
 
 }

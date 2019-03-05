@@ -42,7 +42,7 @@ public class result extends AppCompatActivity {
     }
 
         public void tryAgain(View view) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext()              , MainActivity.class));
 
     }
 }
