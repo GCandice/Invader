@@ -1,6 +1,7 @@
 package fr.iutlens.mmi.invader;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
@@ -28,7 +29,21 @@ public class Main2Activity extends AppCompatActivity {
 
 
         TextView t = (TextView) findViewById(R.id.textView2);
-        t.setMovementMethod(LinkMovementMethod.getInstance());
+        t.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        String url = "http://dig.ccmixter.org/files/Karstenholymoly/55921";
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+
+                    }
+                }
+        );
+//        t.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
 
