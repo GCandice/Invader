@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 mServ.resumeMusic();
             }
 
+            gameView.start();
+
         }
 
         //unbind
