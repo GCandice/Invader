@@ -101,9 +101,13 @@ public class GameView extends View implements TimerAction {
 
         // Un clic sur la vue lance (ou relance) l'animation
 
+        //start();
+
+
+    }
+
+    public void start() {
         if (!timer.isRunning()) timer.scheduleRefresh(30);
-
-
     }
 
     public static void act(List list){
