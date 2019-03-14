@@ -16,7 +16,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Space Invaders"
+        android:text="L'invasion"
         android:textColor="#fff"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
