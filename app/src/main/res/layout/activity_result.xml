@@ -7,7 +7,7 @@
     android:background="@drawable/gradient"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context="fr.iutlens.mmi.invader.result">
+    tools:context="fr.iutlens.mmi.linvasion.result">
 
     <TextView
         android:id="@+id/textView4"

@@ -1,4 +1,4 @@
-package fr.iutlens.mmi.invader.utils;
+package fr.iutlens.mmi.linvasion.utils;
 
 /**
  * Created by dubois on 27/12/2017.

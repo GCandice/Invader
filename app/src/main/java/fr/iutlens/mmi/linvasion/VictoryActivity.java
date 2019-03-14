@@ -1,4 +1,4 @@
-package fr.iutlens.mmi.invader;
+package fr.iutlens.mmi.linvasion;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

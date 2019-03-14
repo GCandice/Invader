@@ -1,4 +1,4 @@
-package fr.iutlens.mmi.invader;
+package fr.iutlens.mmi.linvasion;
 
 import android.content.Context;
 import android.content.Intent;

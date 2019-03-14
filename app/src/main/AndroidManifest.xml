@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fr.iutlens.mmi.invader">
+    package="fr.iutlens.mmi.linvasion">
 
     <application
         android:allowBackup="true"
@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <service
-            android:name=".MusicService"
+            android:name="fr.iutlens.mmi.linvasion.MusicService"
             android:enabled="true" />
 
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Main2Activity">
+        <activity android:name="fr.iutlens.mmi.linvasion.MainActivity" />
+        <activity android:name="fr.iutlens.mmi.linvasion.Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".result" />
-        <activity android:name=".VictoryActivity"></activity>
+        <activity android:name="fr.iutlens.mmi.linvasion.result" />
+        <activity android:name="fr.iutlens.mmi.linvasion.VictoryActivity"></activity>
     </application>
 
 </manifest>

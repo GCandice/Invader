@@ -1,4 +1,4 @@
-package fr.iutlens.mmi.invader;
+package fr.iutlens.mmi.linvasion;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,11 +14,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
 
-import fr.iutlens.mmi.invader.utils.RefreshHandler;
-import fr.iutlens.mmi.invader.utils.SpriteSheet;
-import fr.iutlens.mmi.invader.utils.TimerAction;
+import fr.iutlens.mmi.linvasion.utils.RefreshHandler;
+import fr.iutlens.mmi.linvasion.utils.SpriteSheet;
+import fr.iutlens.mmi.linvasion.utils.TimerAction;
 
 
 public class GameView extends View implements TimerAction {

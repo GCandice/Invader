@@ -1,4 +1,4 @@
-package fr.iutlens.mmi.invader.utils;
+package fr.iutlens.mmi.linvasion.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
